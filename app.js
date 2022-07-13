@@ -1,7 +1,8 @@
-// This are the variable 
+// These are the variables that store the values of the output and the buttons
 const display = document.querySelector('.display');
 const buttons = document.querySelectorAll('button');
 
+// This is the event listener for when the user clicks the buttons
 buttons.forEach(button => button.addEventListener('click', (e) => {
 
     switch (e.target.innerText) {
@@ -17,6 +18,7 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
 }));
 
+// The operate function
 const operate = (num1, operator, num2) => {
     switch (operator.innerText) {
         case '+':
