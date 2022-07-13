@@ -14,6 +14,7 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
             display.innerText += e.target.innerText;
     };
 
+    // Call the operate function
     operate();
 
 }));
@@ -38,3 +39,10 @@ const operate = (num1, operator, num2) => {
             break;
     };
 };
+
+// The mathematical functions
+
+const add = (num1, num2) => num1 + num2;
+const substract = (num1, num2) => num1 - num2;
+const multiply = (num1, num2) => num1 * num2;
+const division = (num1, num2) => num1 / num2;
