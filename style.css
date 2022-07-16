@@ -8,7 +8,7 @@
     flex-direction: column;
     align-content: space-between;
     width: 250px;
-    height: 400px;
+    height: 500px;
     margin: 10vh auto;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
@@ -65,4 +65,8 @@
 
 .clear:hover {
     background-color: #b30000;
+}
+
+.equal {
+    grid-column: 1 / -1;
 }
