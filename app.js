@@ -1,6 +1,9 @@
 // These are the variables that store the values of the output and the buttons
 const display = document.querySelector('.display');
 const buttons = document.querySelectorAll('button');
+const equalsButton = document.getElementById('equal');
+const firtstOperator = '';
+const secondOperator = '';
 
 // This is the event listener for when the user clicks the buttons
 buttons.forEach(button => button.addEventListener('click', (e) => {
@@ -19,24 +22,22 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
 }));
 
+equalsButton.addEventListener('click', )
+
 // The operate function
 const operate = (num1, operator, num2) => {
     switch (operator.innerText) {
         case '+':
-            add(num1, num2);
-            break;
+            return add(num1, num2);
 
         case '-':
-            substract(num1, num2);
-            break;
+            return substract(num1, num2);
 
         case '*':
-            multiply(num1, num2);
-            break;
+            return multiply(num1, num2);
 
         case '/':
-            division(num1, num2);
-            break;
+            return division(num1, num2);
     };
 };
 
