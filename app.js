@@ -4,12 +4,13 @@ const buttons = document.querySelectorAll('button');
 const equalsButton = document.getElementById('equal');
 const firtstOperator = '';
 const secondOperator = '';
+const mathOperator = document.querySelectorAll('operator');
 
 // This is the event listener for when the user clicks the buttons
 buttons.forEach(button => button.addEventListener('click', (e) => {
 
     switch (e.target.innerText) {
-        case 'C':
+        case 'C': case '=':
             display.innerText = '';
             break;
 
@@ -17,15 +18,22 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
             display.innerText += e.target.innerText;
     };
 
-    // Call the operate function
-    operate();
+    /*// Call the operate function
+    operate(firtstOperator, mathOperator, secondOperator);*/
 
 }));
 
-equalsButton.addEventListener('click', )
+// Call the operate function
+equalsButton.addEventListener('click', () => {
+    display.textContent = `${operate(firtstOperator, mathOperator, secondOperator)}`
+});
 
 // The operate function
 const operate = (num1, operator, num2) => {
+    
+    num1 = Number(num1);
+    num2 = Number(num2);
+
     switch (operator.innerText) {
         case '+':
             return add(num1, num2);
