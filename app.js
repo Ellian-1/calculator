@@ -4,7 +4,8 @@ const buttons = document.querySelectorAll('button');
 const equalsButton = document.getElementById('equal');
 const firtstOperator = '';
 const secondOperator = '';
-const mathOperator = document.querySelectorAll('operator');
+const mathOperators = document.querySelectorAll('operator');
+const operator = '';
 
 // This is the event listener for when the user clicks the buttons
 buttons.forEach(button => button.addEventListener('click', (e) => {
@@ -16,6 +17,8 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
         default:
             display.innerText += e.target.innerText;
+            firtstOperator = display.innerText;
+            secondOperator = '';
     };
 
     /*// Call the operate function
@@ -23,9 +26,32 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
 }));
 
+mathOperators.forEach(op => op.addEventListener('click', (e) => {
+    switch (e.target.innerText) {
+        case '+':
+            operator = '+';
+            break;
+
+        case '-':
+            operator = '-';
+            break;
+
+        case '*':
+            operator = '*';
+            break;
+
+        case '/':
+            operator = '/';
+            break;
+    
+        default:
+            break;
+    }
+}));
+
 // Call the operate function
 equalsButton.addEventListener('click', () => {
-    display.textContent = `${operate(firtstOperator, mathOperator, secondOperator)}`
+    display.textContent = (`${operate(firtstOperator, operator, secondOperator)}`);
 });
 
 // The operate function
