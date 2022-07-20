@@ -17,8 +17,13 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
         default:
             display.innerText += e.target.innerText;
-            firtstOperator = display.innerText;
-            secondOperator = '';
+            
+
+        if (operator === '') {
+            firtstOperator = e.target.innerText;
+        } else {
+            secondOperator = e.target.innerText;
+        }
     };
 
     /*// Call the operate function
@@ -26,33 +31,10 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
 
 }));
 
-mathOperators.forEach(op => op.addEventListener('click', (e) => {
-    switch (e.target.innerText) {
-        case '+':
-            operator = '+';
-            break;
-
-        case '-':
-            operator = '-';
-            break;
-
-        case '*':
-            operator = '*';
-            break;
-
-        case '/':
-            operator = '/';
-            break;
-    
-        default:
-            break;
-    }
+mathOperators.forEach(mathOperator => mathOperator.addEventListener('click', (e) => {
+    operator = e.target.innerText;
+    operate(firtstOperator, operator, secondOperator);
 }));
-
-// Call the operate function
-equalsButton.addEventListener('click', () => {
-    display.textContent = (`${operate(firtstOperator, operator, secondOperator)}`);
-});
 
 // The operate function
 const operate = (num1, operator, num2) => {
@@ -77,7 +59,23 @@ const operate = (num1, operator, num2) => {
 
 // The mathematical functions
 
-const add = (num1, num2) => num1 + num2;
-const substract = (num1, num2) => num1 - num2;
-const multiply = (num1, num2) => num1 * num2;
-const division = (num1, num2) => num1 / num2;
+const add = (num1, num2) => {
+    const result = num1 + num2;
+    display.textContent = result;
+};
+
+const substract = (num1, num2) => {
+    const result = num1 - num2
+    display.textContent = result;
+};
+
+const multiply = (num1, num2) => {
+    const result = num1 * num2;
+    display.textContent = result;
+
+};
+
+const division = (num1, num2) => {
+    const result = num1 / num2
+    display.textContent = result;
+};
