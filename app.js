@@ -7,31 +7,35 @@ const secondOperator = '';
 const mathOperators = document.querySelectorAll('operator');
 const operator = '';
 
-// This is the event listener for when the user clicks the buttons
-buttons.forEach(button => button.addEventListener('click', (e) => {
+// This is the function to handle the buttons for the operands
+const handleButtons = () => {
+    buttons.forEach(button => button.addEventListener('click', () => {
+        switch (button.innerText) {
+            case 'C': case '=':
+                display.innerText = '';
+                break;
+    
+            default:
+                display.innerText += button.innerText;
+                
+            if (operator === '') {
+                firtstOperator = button.innerText;
+            } else {
+                secondOperator = button.innerText;
+            };
+        };
+    }));
+};
+handleButtons();
 
-    switch (e.target.innerText) {
-        case 'C': case '=':
-            display.innerText = '';
-            break;
-
-        default:
-            display.innerText += e.target.innerText;
-            
-
-        if (operator === '') {
-            firtstOperator = e.target.innerText;
-        } else {
-            secondOperator = e.target.innerText;
-        }
-    };
-
-}));
-
-mathOperators.forEach(mathOperator => mathOperator.addEventListener('click', (e) => {
-    operator = e.target.innerText;
-    operate(firtstOperator, operator, secondOperator);
-}));
+// This is the function to handle the buttons for the operators
+const handleOperators = () => {
+    mathOperators.forEach(mathOperator => mathOperator.addEventListener('click', () => {
+        operator = mathOperator.innerText;
+        operate(firtstOperator, operator, secondOperator);
+    }));
+};
+handleOperators();
 
 // The operate function
 const operate = (num1, operator, num2) => {
