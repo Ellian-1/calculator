@@ -26,9 +26,6 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
         }
     };
 
-    /*// Call the operate function
-    operate(firtstOperator, mathOperator, secondOperator);*/
-
 }));
 
 mathOperators.forEach(mathOperator => mathOperator.addEventListener('click', (e) => {
