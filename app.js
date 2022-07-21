@@ -1,11 +1,19 @@
+// This is the calculator function of the calculator
 const calculator = () => {
     
     // These are the variables that store the values of the output and the buttons
+
+    // These two are the variables that store the values of the previous and current display
     let previousDisplay = document.querySelector('.previous-display')
     let currentDisplay = document.querySelector('.current-display');
+
+    // These two store the values of the buttons and mathematical operators
     const buttons = document.querySelectorAll('button');
     const mathOperators = document.querySelectorAll('operator');
-    const equalsButton = document.getElementById('equal');
+
+    //const equalsButton = document.getElementById('equal');
+
+    // These three are the variables for the operators and the operators sign
     let firtstOperator = '';
     let secondOperator = '';
     let operator = '';
@@ -14,12 +22,21 @@ const calculator = () => {
     const handleButtons = () => {
         buttons.forEach(button => button.addEventListener('click', () => {
             switch (button.innerText) {
-                case 'C': case '=':
+
+                // In case of clicking the 'C' button, clean the current display
+                case 'C':
                     currentDisplay.innerText = '';
                     break;
+
+                // In case of clicking the '=' button, return the result of the operation
+                case '=':
+                    mathematicalOperations();
+                    updateOperators();
+                    break;
         
+                // By default, shows the numbers that are clicking
                 default:
-                    currentDisplay.innerText += button.innerText;
+                    //currentDisplay.innerText += button.innerText;
                     firtstOperator = button.innerText;
 
                 updateOperators();
@@ -28,51 +45,73 @@ const calculator = () => {
 
         mathOperators.forEach(mathOperator => mathOperator.addEventListener('click', () => {
             operator = mathOperator.innerText;
-            operate(firtstOperator, operator, secondOperator);
+            operate();
             updateOperators();
         }));
 
-        equalsButton.addEventListener('click', () => {
-            operate(firtstOperator, operator, secondOperator);
+        /*equalsButton.addEventListener('click', () => {
+            mathematicalOperations();
             updateOperators();
-        })
+        })*/
     };
-    handleButtons();
 
     // The operate function
-    const operate = (num1, operator, num2) => {
+    const operate = () => {
         
-        num1 = Number(num1);
-        num2 = Number(num2);
+        if (secondOperator !== '') {
+            mathematicalOperations();
+        }
 
-        switch (operator.innerText) {
-            case '+':
-                return add(num1, num2);
-
-            case '-':
-                return substract(num1, num2);
-
-            case '*':
-                return multiply(num1, num2);
-
-            case '/':
-                return division(num1, num2);
-        };
+        secondOperator = `${firtstOperator} ${operator}`;
+        firtstOperator = '';
     };
 
-    // The mathematical functions
+    // The mathematical operations
+    const mathematicalOperations = () => {
 
-    const add = (num1, num2) => num1 + num2;
+        const currentNumber = Number(firtstOperator);
+        const previousNumber = Number(secondOperator);
+        let result;
+
+        switch (operator) {
+            case '+':
+                result = previousNumber + currentNumber;
+                return result;
+
+            case '-':
+                result = previousNumber - currentNumber;
+                return result;
+
+            case '*':
+                result = previousNumber * currentNumber;
+                return result;
+
+            case '/':
+                result = previousNumber / currentNumber;
+                return result;
+        };
+
+        firtstOperator = result;
+        operator = '';
+        secondOperator = '';
+    };
+
+    /*const add = (num1, num2) => num1 + num2;
 
     const substract = (num1, num2) => num1 - num2;
 
     const multiply = (num1, num2) => num1 * num2;
 
-    const division = (num1, num2) => num1 / num2;
+    const division = (num1, num2) => num1 / num2;*/
 
     const updateOperators = () => {
-        
+        currentDisplay.innerText = firtstOperator;
+        previousDisplay.innerText = secondOperator;
     };
+
+    // Call the handleButtons function
+    handleButtons();
 };
 
+// Call the calculator function
 calculator();
