@@ -1,14 +1,14 @@
 const calculator = () => {
+    
     // These are the variables that store the values of the output and the buttons
-    const previousDisplay = document.querySelector('.previous-display')
-    const currentDisplay = document.querySelector('.current-display');
+    let previousDisplay = document.querySelector('.previous-display')
+    let currentDisplay = document.querySelector('.current-display');
     const buttons = document.querySelectorAll('button');
+    const mathOperators = document.querySelectorAll('operator');
     const equalsButton = document.getElementById('equal');
     let firtstOperator = '';
     let secondOperator = '';
     let operator = '';
-    const mathOperators = document.querySelectorAll('operator');
-
 
     // Create the function to handle the buttons
     const handleButtons = () => {
@@ -62,26 +62,13 @@ const calculator = () => {
 
     // The mathematical functions
 
-    const add = (num1, num2) => {
-        const result = num1 + num2;
-        currentDisplay.textContent = result;
-    };
+    const add = (num1, num2) => num1 + num2;
 
-    const substract = (num1, num2) => {
-        const result = num1 - num2
-        currentDisplay.textContent = result;
-    };
+    const substract = (num1, num2) => num1 - num2;
 
-    const multiply = (num1, num2) => {
-        const result = num1 * num2;
-        currentDisplay.textContent = result;
+    const multiply = (num1, num2) => num1 * num2;
 
-    };
-
-    const division = (num1, num2) => {
-        const result = num1 / num2
-        currentDisplay.textContent = result;
-    };
+    const division = (num1, num2) => num1 / num2;
 
     const updateOperators = () => {
         
