@@ -20,14 +20,9 @@ const calculator = () => {
         
                 default:
                     currentDisplay.innerText += button.innerText;
+                    firtstOperator = button.innerText;
 
                 updateOperators();
-                    
-                if (operator === '') {
-                    firtstOperator = button.innerText;
-                } else {
-                    secondOperator = button.innerText;
-                };
             };
         }));
 
@@ -36,6 +31,11 @@ const calculator = () => {
             operate(firtstOperator, operator, secondOperator);
             updateOperators();
         }));
+
+        equalsButton.addEventListener('click', () => {
+            operate(firtstOperator, operator, secondOperator);
+            updateOperators();
+        })
     };
     handleButtons();
 
