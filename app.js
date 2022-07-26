@@ -1,5 +1,5 @@
-let display = document.querySelector('.current-display');
-let buttons =Array.from( document.querySelectorAll('.button'));
+let display = document.getElementsByClassName('display');
+let buttons = Array.from( document.getElementsByClassName('button'));
 
 buttons.map(button => {
     button.addEventListener('click', e => {
@@ -10,6 +10,7 @@ buttons.map(button => {
             
             case '=':
                 try{
+                    console.log(display.innerText);
                     display.innerText = eval(display.innerText);
                 } catch {
                     display.innerText = "Error"

@@ -13,16 +13,10 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.previous-display {
+
+.display {
     text-align: right;
     height: 10%;
-    font-size: 35px;
-    padding: 24px 12px;
-}
-
-.current-display {
-    text-align: right;
-    height: 15%;
     font-size: 35px;
     padding: 24px 12px;
 }
@@ -30,7 +24,7 @@
 .buttons-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 75%;
+    height: 90%;
 }
 
 .buttons {
@@ -58,8 +52,13 @@
 }
 
 .operator {
+    border: 1px 1px 00 solid #999;
     background-color: #0066ff;
     color: white;
+    cursor: pointer;
+    text-align: center;
+    line-height: 70px;
+    font-weight: bolder;
 }
 
 .operator:hover {
