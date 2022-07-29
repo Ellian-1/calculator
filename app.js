@@ -19,4 +19,4 @@ buttons.forEach(button => button.addEventListener('click', () => {
         default:
             display.innerText += button.innerText;
     };
-}))
+}));
