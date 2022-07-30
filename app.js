@@ -1,8 +1,11 @@
 let display = document.querySelector('.display');
 let buttons = document.querySelectorAll('.button');
 
-buttons.forEach(button => button.addEventListener('click', () => {
-    switch(button.innerText) {
+buttons.forEach(button => button.addEventListener('click', e => {
+
+    const buttonValue = e.target.innerText;
+
+    switch(buttonValue) {
         case 'C':
             display.innerText = '';
             break;
@@ -17,6 +20,6 @@ buttons.forEach(button => button.addEventListener('click', () => {
             break;
 
         default:
-            display.innerText += button.innerText;
+            display.innerText += buttonValue;
     };
 }));
