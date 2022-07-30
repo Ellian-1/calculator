@@ -4,18 +4,18 @@ const calculator = () => {
     
     buttons.forEach(button => button.addEventListener('click', e => {
     
-        const buttonValue = e.target.innerText;
+        const buttonValue = e.target.textContent;
         
         if (buttonValue === 'C') {
-            display.innerText = '';
+            display.textContent = '';
         } else if (buttonValue === '=') {
             try {
-                display.innerText = eval(display.innerText);
+                display.textContent = eval(display.textContent);
             } catch {
-                display.innerText = 'Error';
+                display.textContent = 'Error';
             };
         } else {
-            display.innerText += buttonValue;
+            display.textContent += buttonValue;
         };
     }));
 };
