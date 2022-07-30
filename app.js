@@ -1,25 +1,23 @@
-let display = document.querySelector('.display');
-let buttons = document.querySelectorAll('.button');
-
-buttons.forEach(button => button.addEventListener('click', e => {
-
-    const buttonValue = e.target.innerText;
-
-    switch(buttonValue) {
-        case 'C':
-            display.innerText = '';
-            break;
+const calculator = () => {
+    let display = document.querySelector('.display');
+    let buttons = document.querySelectorAll('.button');
+    
+    buttons.forEach(button => button.addEventListener('click', e => {
+    
+        const buttonValue = e.target.innerText;
         
-        case '=':
-            try{
-                console.log(display.innerText);
+        if (buttonValue === 'C') {
+            display.innerText = '';
+        } else if (buttonValue === '=') {
+            try {
                 display.innerText = eval(display.innerText);
             } catch {
-                display.innerText = "Error"
-            }
-            break;
-
-        default:
+                display.innerText = 'Error';
+            };
+        } else {
             display.innerText += buttonValue;
-    };
-}));
+        };
+    }));
+};
+
+calculator();
