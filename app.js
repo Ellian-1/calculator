@@ -1,4 +1,5 @@
 const calculator = () => {
+
     let display = document.querySelector('.display');
     let buttons = document.querySelectorAll('.button');
     
@@ -15,9 +16,16 @@ const calculator = () => {
                 display.textContent = 'Error';
             };
         } else {
-            display.textContent += buttonValue;
+            if (display.textContent == '0') {
+                display.textContent = '';
+                display.textContent += buttonValue;    
+            } else {
+                display.textContent += buttonValue;
+            }
         };
+
     }));
+    
 };
 
 calculator();
